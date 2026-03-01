@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+scikit-learn
+pandas
+joblib
+python-multipart
+# Add any other ML libraries used in your training notebook
