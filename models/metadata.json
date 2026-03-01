@@ -1,0 +1,30 @@
+{
+  "model_type": "LogisticRegression",
+  "vectorizer_type": "TfidfVectorizer",
+  "vectorizer_params": {
+    "max_features": 5000,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 3,
+    "max_df": 0.9
+  },
+  "label_mapping": {
+    "CG": "fake",
+    "OR": "real"
+  },
+  "classes": [
+    "fake",
+    "real"
+  ],
+  "training_class_counts": {
+    "fake": 20216,
+    "real": 20216
+  },
+  "train_accuracy": 0.9204,
+  "test_accuracy": 0.8895,
+  "training_time_sec": 4.18,
+  "random_state": 42,
+  "test_size": 0.2
+}

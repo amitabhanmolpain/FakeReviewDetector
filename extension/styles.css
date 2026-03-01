@@ -1,103 +1,150 @@
-/* TrustScan Styles for Review Indicators */
+/* ═══════════════════════════════════════════════════════════
+   TrustScan — Review Badge Styles (injected into Amazon)
+   ═══════════════════════════════════════════════════════════ */
 
+/* ── Base badge ─────────────────────────────────────────── */
 .trust-scan-badge {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 16px;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
     margin-bottom: 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    max-width: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 420px;
     cursor: default;
     user-select: none;
-    backdrop-filter: blur(10px);
+    animation: ts-slide-in 0.35s ease-out;
     border: 1px solid transparent;
 }
 
-/* Genuine Review Theme */
-.ts-genuine {
-    background: linear-gradient(135deg, rgba(236, 253, 245, 0.9), rgba(209, 250, 229, 0.9));
-    color: #065f46;
-    border-color: rgba(167, 243, 208, 0.5);
+.trust-scan-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-.ts-genuine .ts-icon {
+.ts-icon {
     font-size: 18px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 1px;
 }
 
-.ts-genuine .ts-label {
-    color: #047857;
-}
-
-.ts-genuine .ts-sub {
-    font-size: 11px;
-    font-weight: 400;
-    color: #4ade80;
-    display: block;
-    margin-top: -2px;
-}
-
-/* Fake Review Theme */
-.ts-fake {
-    background: linear-gradient(135deg, rgba(254, 242, 242, 0.9), rgba(254, 226, 226, 0.9));
-    color: #991b1b;
-    border-color: rgba(254, 202, 202, 0.5);
-    animation: ts-fade-in 0.5s ease-out;
-}
-
-.ts-fake .ts-icon {
-    font-size: 18px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-.ts-fake .ts-label {
-    color: #b91c1c;
-}
-
-.ts-fake .ts-sub {
-    font-size: 11px;
-    font-weight: 400;
-    color: #f87171;
-    display: block;
-    margin-top: -2px;
-}
-
-/* Content Layout */
 .ts-content {
     display: flex;
     flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
 }
 
-/* Error / Offline State */
+.ts-label {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.ts-sub {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.3;
+    opacity: 0.85;
+}
+
+/* ── Confidence bar ─────────────────────────────────────── */
+.ts-bar-track {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.08);
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.ts-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s ease-out;
+}
+
+/* ── Heuristic chips ────────────────────────────────────── */
+.ts-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 5px;
+}
+
+.ts-chip {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 99px;
+    background: rgba(0, 0, 0, 0.06);
+    color: inherit;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* ── Genuine (Real) theme ───────────────────────────────── */
+.ts-genuine {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    color: #065f46;
+    border-color: rgba(167, 243, 208, 0.6);
+}
+.ts-genuine .ts-label { color: #047857; }
+.ts-genuine .ts-sub   { color: #34d399; }
+.ts-genuine .ts-chip  { background: rgba(16, 185, 129, 0.12); color: #047857; }
+
+/* ── Fake theme ─────────────────────────────────────────── */
+.ts-fake {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    color: #991b1b;
+    border-color: rgba(254, 202, 202, 0.6);
+}
+.ts-fake .ts-label { color: #b91c1c; }
+.ts-fake .ts-sub   { color: #f87171; }
+.ts-fake .ts-chip  { background: rgba(239, 68, 68, 0.12); color: #b91c1c; }
+
+/* ── Uncertain theme ────────────────────────────────────── */
+.ts-uncertain {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    color: #78350f;
+    border-color: rgba(253, 224, 71, 0.5);
+}
+.ts-uncertain .ts-label { color: #92400e; }
+.ts-uncertain .ts-sub   { color: #f59e0b; }
+.ts-uncertain .ts-chip  { background: rgba(245, 158, 11, 0.12); color: #92400e; }
+
+/* ── Error / Offline ────────────────────────────────────── */
 .ts-error {
-    background: #f1f5f9;
+    background: #f8fafc;
     color: #475569;
-    border-color: #cbd5e1;
-    font-size: 12px;
-    padding: 6px 12px;
+    border-color: #e2e8f0;
+}
+.ts-error .ts-label { color: #64748b; }
+.ts-error .ts-sub   { color: #94a3b8; }
+
+/* ── Loading shimmer ────────────────────────────────────── */
+.ts-loading {
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    color: #64748b;
+    border-color: #e2e8f0;
+    animation: ts-pulse 1.2s ease-in-out infinite;
+}
+.ts-loading .ts-label { color: #94a3b8; }
+
+@keyframes ts-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.5; }
 }
 
-/* Animations */
-@keyframes ts-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(-4px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Hover Effect for Premium Feel */
-.trust-scan-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes ts-slide-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
 }

@@ -18,7 +18,8 @@
         "https://www.amazon.es/*",
         "https://www.amazon.it/*",
         "https://www.amazon.co.jp/*",
-        "https://www.amazon.com.au/*"
+        "https://www.amazon.com.au/*",
+        "http://localhost:8000/*"
     ],
     "background": {
         "service_worker": "background.js"

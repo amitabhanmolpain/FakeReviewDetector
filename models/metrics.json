@@ -1,0 +1,40 @@
+{
+  "thresholds": {
+    "fake_threshold": 0.85,
+    "real_threshold": 0.35
+  },
+  "binary_classification_report": {
+    "fake": {
+      "precision": 0.8941,
+      "recall": 0.8835,
+      "f1-score": 0.8888,
+      "support": 4044.0
+    },
+    "real": {
+      "precision": 0.8849,
+      "recall": 0.8954,
+      "f1-score": 0.8901,
+      "support": 4043.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      3573,
+      471
+    ],
+    [
+      423,
+      3620
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "fake",
+    "real"
+  ],
+  "roc_auc": 0.9588,
+  "three_class_counts": {
+    "Fake": 2211,
+    "Real": 3448,
+    "Uncertain": 2428
+  }
+}

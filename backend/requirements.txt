@@ -1,8 +1,9 @@
 fastapi
-uvicorn
+uvicorn[standard]
 pydantic
 scikit-learn
 pandas
+numpy
 joblib
+nltk
 python-multipart
-# Add any other ML libraries used in your training notebook
