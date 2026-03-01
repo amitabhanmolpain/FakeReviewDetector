@@ -1,0 +1,103 @@
+/* TrustScan Styles for Review Indicators */
+
+.trust-scan-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: fit-content;
+    cursor: default;
+    user-select: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid transparent;
+}
+
+/* Genuine Review Theme */
+.ts-genuine {
+    background: linear-gradient(135deg, rgba(236, 253, 245, 0.9), rgba(209, 250, 229, 0.9));
+    color: #065f46;
+    border-color: rgba(167, 243, 208, 0.5);
+}
+
+.ts-genuine .ts-icon {
+    font-size: 18px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.ts-genuine .ts-label {
+    color: #047857;
+}
+
+.ts-genuine .ts-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: #4ade80;
+    display: block;
+    margin-top: -2px;
+}
+
+/* Fake Review Theme */
+.ts-fake {
+    background: linear-gradient(135deg, rgba(254, 242, 242, 0.9), rgba(254, 226, 226, 0.9));
+    color: #991b1b;
+    border-color: rgba(254, 202, 202, 0.5);
+    animation: ts-fade-in 0.5s ease-out;
+}
+
+.ts-fake .ts-icon {
+    font-size: 18px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.ts-fake .ts-label {
+    color: #b91c1c;
+}
+
+.ts-fake .ts-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: #f87171;
+    display: block;
+    margin-top: -2px;
+}
+
+/* Content Layout */
+.ts-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Error / Offline State */
+.ts-error {
+    background: #f1f5f9;
+    color: #475569;
+    border-color: #cbd5e1;
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+/* Animations */
+@keyframes ts-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effect for Premium Feel */
+.trust-scan-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

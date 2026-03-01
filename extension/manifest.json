@@ -1,0 +1,60 @@
+{
+    "manifest_version": 3,
+    "name": "TrustScan - Fake Review Detector",
+    "version": "1.0",
+    "description": "Protects your shopping by scanning Amazon product reviews for deceptive content using ML analysis.",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.amazon.com/*",
+        "https://www.amazon.in/*",
+        "https://www.amazon.co.uk/*",
+        "https://www.amazon.ca/*",
+        "https://www.amazon.de/*",
+        "https://www.amazon.fr/*",
+        "https://www.amazon.es/*",
+        "https://www.amazon.it/*",
+        "https://www.amazon.co.jp/*",
+        "https://www.amazon.com.au/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.amazon.com/*",
+                "https://www.amazon.in/*",
+                "https://www.amazon.co.uk/*",
+                "https://www.amazon.ca/*",
+                "https://www.amazon.de/*",
+                "https://www.amazon.fr/*",
+                "https://www.amazon.es/*",
+                "https://www.amazon.it/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "styles.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}

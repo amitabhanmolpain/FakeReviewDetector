@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustScan Extension</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
+            --text: #1e293b;
+        }
+
+        body {
+            width: 320px;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 18px;
+            margin: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .status-label {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .status-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #10b981;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 11px;
+            color: #94a3b8;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="icons/icon128.png" alt="TrustScan">
+        <h1>TrustScan AI</h1>
+    </div>
+
+    <div class="status-card">
+        <div class="status-row">
+            <span class="status-label">Scanner Status:</span>
+            <span class="status-value">Active</span>
+        </div>
+        <div class="status-row">
+            <span class="status-label">Current Domain:</span>
+            <span class="status-value" id="domain-label">Detecting...</span>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="btn" id="rescan-btn">Rescan Current Page</button>
+        <a href="#" class="btn" style="background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0;">View Detailed Reports</a>
+    </div>
+
+    <div class="footer">
+        Powered by TrustScan ML Engine v1.0.4
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
