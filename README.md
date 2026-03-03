@@ -1,5 +1,15 @@
 <h1 align="center">Fake Review Detector</h1>
 
+## Overview
+
+Fake Review Detector is an AI-powered system designed to identify potentially fake or AI-generated product reviews on e-commerce platforms. The project combines Natural Language Processing (NLP) and Machine Learning techniques to classify reviews as **Fake**, **Real**, or **Uncertain** based on linguistic patterns and statistical features.
+
+The model is trained on a labeled dataset containing genuine and computer-generated reviews using **TF-IDF vectorization** and machine learning algorithms such as **Logistic Regression and SVM**.  
+
+A **FastAPI backend** serves the trained model as an API, while a **Chrome browser extension** extracts reviews from live shopping websites and highlights suspicious ones in real time.
+
+This system helps users detect misleading reviews and make more informed purchasing decisions.
+
 ## Project Structure
 
 ```
